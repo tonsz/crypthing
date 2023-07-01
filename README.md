@@ -7,8 +7,8 @@
     - pyperclip 
     - cryptography
   Install the dependencies by typing on the terminal 
-  ``` pip install tkinter
-  ``` pip install pyperclip
-  ``` pip install cryptography 
+  ` pip install tkinter`
+  ` pip install pyperclip`
+  ` pip install cryptography `
 - Type on terminal
- ``` python main.py
+ ` python main.py `
