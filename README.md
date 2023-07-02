@@ -4,12 +4,12 @@
 - Make sure to have Python installed
 - Open a VS Code terminal 
 - Clone the repository by entering command
-  ``` vscode
+  ```vscode
       git clone https://github.com/tonsz/crypthing.git
-      ```
-  ``` vscode
+  ```
+  ```vscode
       code crypthing
-      ```
+  ```
 - Make sure to install the dependencies 
     - tkinter - GUI
     - pyperclip - copies stuff on clipboard
