@@ -1,6 +1,7 @@
 import os 
 import pyperclip
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet   
+from tkinter import messagebox
 
 def encrypt_file(source_file, file_path_var):
 
@@ -20,8 +21,9 @@ def encrypt_file(source_file, file_path_var):
         # manipulate content here oh
         file.write(str(ciphertext, 'utf8'))
         copy_key_to_clipboard(key)
+        messagebox.showinfo("Successful", "File written successfully and key copied to your clipboard!")  
         file_path_var.set("File written successfully and key copied to your clipboard!")
-    
+     
 def decrypt_file(source_file, file_path_var, key): 
 
     crypthing = Fernet(key)
@@ -34,7 +36,8 @@ def decrypt_file(source_file, file_path_var, key):
 
     with open(source_file + "_decrypted.txt", 'w') as file:
         # manipulate content here oh
-        file.write(str(plaintext, 'utf8'))
+        file.write(str(plaintext, 'utf8')) 
+        messagebox.showinfo("Successful", "Content decrypted and File written successfully!") 
         file_path_var.set("Content decrypted and File written successfully!")
 
 # write the encrypted file in a different filename                                                               

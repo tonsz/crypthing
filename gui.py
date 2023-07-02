@@ -80,9 +80,17 @@ class GUI:
         selection = self.radio_var.get()
 
         if selection == "decrypt":
-            crypthing.decrypt_file(source_file, self.file_path_var, self.key_entry.get())
+                # prompt if user wanted to continue to encrypt the txt file
+                answer = messagebox.askquestion("Are you sure?", "Are you sure you want to continue?", icon = 'question')
+                # if yes, execute the following command
+                if answer == 'yes':
+                    crypthing.decrypt_file(source_file, self.file_path_var, self.key_entry.get())
         elif selection == "encrypt":
-            crypthing.encrypt_file(source_file, self.file_path_var)
+                # prompt if user wanted to continue to encrypt the txt file
+                answer = messagebox.askquestion("Are you sure?", "Are you sure you want to continue?", icon = 'question')
+                # if yes, execute the following command
+                if answer == 'yes':
+                    crypthing.encrypt_file(source_file, self.file_path_var)
 
     def run(self):
         self.window.mainloop()
