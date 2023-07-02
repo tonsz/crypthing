@@ -1,6 +1,6 @@
 import tkinter as tk
 import customtkinter as ctk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import crypthing
 
 # The interface of the Program. 
@@ -42,8 +42,8 @@ class GUI:
         
 
         # Process file button
-        process_button = ctk.CTkButton(self.window, text="Process File", command=self.process_file)
-        process_button.grid(row=4, column=0, columnspan=2)
+        self.process_button = ctk.CTkButton(self.window, text="Process File", command=self.process_file, state="disabled")
+        self.process_button.grid(row=4, column=0, columnspan=2)
 
         # Create a label to display the selected file path or status
         self.file_path_var = tk.StringVar()
@@ -64,7 +64,13 @@ class GUI:
     def open_file_dialog(self):
         filepath = filedialog.askopenfilename()
         if filepath:
-            self.file_path_var.set(filepath)
+            if not filepath.endswith(".txt"):
+                self.file_path_var.set(filepath)
+                messagebox.showerror("Error", "File is not a .txt file")
+                self.process_button.configure(state="disabled")
+            else:
+                self.file_path_var.set(filepath)
+                self.process_button.configure(state="normal")
 
     def process_file(self):
         source_file = self.file_path_var.get()
