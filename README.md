@@ -26,6 +26,9 @@
   ```vscode 
     pip install cryptography
     ```
+  ```vscode 
+    pip install customktinker
+  ```
 - Type on terminal
   ```vscode 
     python main.py
