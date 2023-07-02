@@ -7,7 +7,7 @@ def encrypt_file(source_file, file_path_var):
 
     key = Fernet.generate_key()
     crypthing = Fernet(key)
-
+ 
     # read the content
     with open(source_file, 'r') as file:
         plaintext = file.read()
@@ -21,13 +21,13 @@ def encrypt_file(source_file, file_path_var):
         # manipulate content here oh
         file.write(str(ciphertext, 'utf8'))
         copy_key_to_clipboard(key)
-        messagebox.showinfo("Successful", "File written successfully and key copied to your clipboard!")  
-        file_path_var.set("File written successfully and key copied to your clipboard!")
+        messagebox.showinfo("Successful", "File written successfully and key copied to your clipboard!")   
+        file_path_var.set("")
      
 def decrypt_file(source_file, file_path_var, key): 
 
     crypthing = Fernet(key)
-
+ 
     # read the content
     with open(source_file, 'r') as file:
         ciphertext = file.read()
@@ -37,8 +37,8 @@ def decrypt_file(source_file, file_path_var, key):
     with open(source_file + "_decrypted.txt", 'w') as file:
         # manipulate content here oh
         file.write(str(plaintext, 'utf8')) 
-        messagebox.showinfo("Successful", "Content decrypted and File written successfully!") 
-        file_path_var.set("Content decrypted and File written successfully!")
+        messagebox.showinfo("Successful", "Content decrypted and File written successfully!")  
+        file_path_var.set("")
 
 # write the encrypted file in a different filename                                                               
 def generate_output_file_path(source_file):
