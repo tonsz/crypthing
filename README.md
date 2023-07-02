@@ -6,14 +6,17 @@
 - Clone the repository by entering command
   ``` vscode
       git clone https://github.com/tonsz/crypthing.git
+      ```
   ``` vscode
       code crypthing
+      ```
 - Make sure to install the dependencies 
     - tkinter - GUI
     - pyperclip - copies stuff on clipboard
     - cryptography - encryption/decryption
 
-  -- Install the dependencies by typing on the terminal 
+  Install the dependencies by typing on the terminal
+  
   ```vscode 
     pip install tkinter
     ```
