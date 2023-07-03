@@ -13,7 +13,7 @@ class GUI:
     def __init__(self):
         self.window = tk.Tk()
         self.window.title("Crypthing!")
-        self.window.geometry("370x450")
+        self.window.geometry("425x450")
         self.window.configure(padx=20, pady=20, bg="#2e2e2e") 
 
         # Welcome banner
@@ -40,9 +40,10 @@ class GUI:
         open_button = ctk.CTkButton(self.window, text="Upload File", command=self.open_file_dialog)
         open_button.grid(row=3, column=0, columnspan=2, pady=12, padx=10)
         
+        self.process_button_text = self.radio_var.get().capitalize() + " File"
 
         # Process file button
-        self.process_button = ctk.CTkButton(self.window, text="Process File", command=self.process_file, state="disabled")
+        self.process_button = ctk.CTkButton(self.window, text=self.process_button_text, command=self.process_file, state="disabled")
         self.process_button.grid(row=4, column=0, columnspan=2)
 
         # Create a label to display the selected file path or status
@@ -57,9 +58,13 @@ class GUI:
         if selection == "decrypt":
             self.key_label.grid(row=2, column=0)
             self.key_entry.grid(row=2, column=1)
+            
         elif selection == "encrypt":
             self.key_label.grid_forget()
             self.key_entry.grid_forget()
+        
+        self.process_button_text = selection.capitalize() + " File"
+        self.process_button.configure(text=self.process_button_text)
         
     def open_file_dialog(self):
         filepath = filedialog.askopenfilename()
