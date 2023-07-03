@@ -94,13 +94,17 @@ class GUI:
                 answer = messagebox.askquestion("Are you sure?", "Are you sure you want to continue?", icon = 'question')
                 # if yes, execute the following command
                 if answer == 'yes': 
-                    crypthing.decrypt_file(source_file, self.file_path_var, self.key_entry.get()) 
+                    success = crypthing.decrypt_file(source_file, self.file_path_var, self.key_entry.get())
+                    if success:
+                        self.process_button.configure(state="disabled")  # Disable the "Process File" button after decryption
         elif selection == "encrypt":
                 # prompt if user wanted to continue to encrypt the txt file
                 answer = messagebox.askquestion("Are you sure?", "Are you sure you want to continue?", icon = 'question')
                 # if yes, execute the following command
                 if answer == 'yes':
-                    crypthing.encrypt_file(source_file, self.file_path_var)
+                    success = crypthing.encrypt_file(source_file, self.file_path_var)
+                    if success:
+                        self.process_button.configure(state="disabled")  # Disable the "Process File" button after encryption
  
     def run(self):
         self.window.mainloop()
