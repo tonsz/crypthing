@@ -23,6 +23,7 @@ def encrypt_file(source_file, file_path_var):
         copy_key_to_clipboard(key)
         messagebox.showinfo("Successful", "File written successfully and key copied to your clipboard!")   
         file_path_var.set("")
+    return True
      
 def decrypt_file(source_file, file_path_var, key): 
 
@@ -39,6 +40,7 @@ def decrypt_file(source_file, file_path_var, key):
         file.write(str(plaintext, 'utf8')) 
         messagebox.showinfo("Successful", "Content decrypted and File written successfully!")  
         file_path_var.set("")
+    return True
 
 # write the encrypted file in a different filename                                                               
 def generate_output_file_path(source_file):
