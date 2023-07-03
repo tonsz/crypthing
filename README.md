@@ -1,35 +1,10 @@
 # How to Run 
 
-- Open the directory on VSCode 
 - Make sure to have Python installed
-- Open a VS Code terminal 
 - Clone the repository by entering command
   ```vscode
       git clone https://github.com/tonsz/crypthing.git
   ```
-  ```vscode
-      code crypthing
-  ```
-- Make sure to install the dependencies 
-    - tkinter - GUI
-    - pyperclip - copies stuff on clipboard
-    - cryptography - encryption/decryption
-
-  Install the dependencies by typing on the terminal
-  
-  ```vscode 
-    pip install tkinter
-    ```
-  ```vscode 
-    pip install pyperclip
-    ```
-  ```vscode 
-    pip install cryptography
-    ```
-  ```vscode 
-    pip install customktinker
-  ```
-- Type on terminal
-  ```vscode 
-    python main.py
-    ```
+- Add the directory's absolute path to the Environment Variables
+- Run the app by opening the Windows Run Dialog with ` Win + R ` 
+- Type `crypthing` and press Enter

@@ -1,0 +1,1 @@
+@start "" /B "C:\Python311\pythonw.exe" "C:\crypthing\main.py" %*
