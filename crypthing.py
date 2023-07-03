@@ -27,13 +27,23 @@ def encrypt_file(source_file, file_path_var):
      
 def decrypt_file(source_file, file_path_var, key): 
 
-    crypthing = Fernet(key)
+    #try-catch for catching exception in invalid key input
+    try:
+        crypthing = Fernet(key)
+    except Exception as e:
+        messagebox.showerror("Error", str(e) + "Please enter a different key.")
+        return False
  
     # read the content
     with open(source_file, 'r') as file:
         ciphertext = file.read()
     
-    plaintext = crypthing.decrypt(ciphertext)
+    #try-catch for catching exception in invalid key input
+    try:
+        plaintext = crypthing.decrypt(ciphertext)
+    except Exception as e:
+        messagebox.showerror("Error", str(e) + "Please enter correct key.")
+        return False  
 
     with open(source_file + "_decrypted.txt", 'w') as file:
         # manipulate content here oh
