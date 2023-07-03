@@ -21,7 +21,7 @@ def encrypt_file(source_file, file_path_var):
         # manipulate content here oh
         file.write(str(ciphertext, 'utf8'))
         copy_key_to_clipboard(key)
-        messagebox.showinfo("Successful", "File written successfully and key copied to your clipboard!")   
+        messagebox.showinfo("Successful", "File written successfully and the encryption key was copied to your clipboard! Store it somewhere safe.")   
         file_path_var.set("")
     return True
      
@@ -31,7 +31,7 @@ def decrypt_file(source_file, file_path_var, key):
     try:
         crypthing = Fernet(key)
     except Exception as e:
-        messagebox.showerror("Error", str(e) + "Please enter a different key.")
+        messagebox.showerror("Error", str(e) + " Please enter a valid key.")
         return False
  
     # read the content
@@ -42,7 +42,7 @@ def decrypt_file(source_file, file_path_var, key):
     try:
         plaintext = crypthing.decrypt(ciphertext)
     except Exception as e:
-        messagebox.showerror("Error", str(e) + "Please enter correct key.")
+        messagebox.showerror("Error", " Decryption failed: Wrong key for that encrypted file.")
         return False  
 
     with open(source_file + "_decrypted.txt", 'w') as file:

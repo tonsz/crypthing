@@ -51,6 +51,9 @@ class GUI:
         label = tk.Label(self.window, textvariable=self.file_path_var, bg="#2e2e2e", fg="white", pady=15)
         label.grid(row=5, column=0, columnspan=2)
 
+        text_block = tk.Label(self.window, text="Note: All keys are different for each encrypted text. Do not lose your encryption key or your file will be lost forever.", width=50, wraplength=300, bg="#2E2E2E", fg="white")
+        text_block.grid(row=6, column=0, columnspan=2)
+
     # Function for changing the look
     def on_radio_changed(self, *args):
         selection = self.radio_var.get()
