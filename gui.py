@@ -64,19 +64,18 @@ class GUI:
     def open_file_dialog(self):
         filepath = filedialog.askopenfilename()
         selection = self.radio_var.get()
-        if filepath:
-            if selection == "encrypt":
+        if filepath: 
                 if not filepath.endswith(".txt"):
                     self.file_path_var.set(filepath)
                     messagebox.showerror("Error", "File is not a .txt file")
                     self.process_button.configure(state="disabled")
-            if selection == "decrypt":   
-                if not filepath.endswith("_encrypted.txt"):
+                    if selection == "decrypt":   
+                        if not filepath.endswith("_encrypted.txt"):
+                            self.file_path_var.set(filepath)
+                            messagebox.showerror("Error", "File is not an encrypted file")
+                else:
                     self.file_path_var.set(filepath)
-                    messagebox.showerror("Error", "File is not an encrypted file")
-            else:
-                self.file_path_var.set(filepath)
-                self.process_button.configure(state="normal")
+                    self.process_button.configure(state="normal")
 
     def process_file(self):
         source_file = self.file_path_var.get()
